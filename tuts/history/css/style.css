@@ -1,0 +1,49 @@
+#one {
+    display: none;
+}
+#two {
+    display: none;
+}
+#three {
+    display: none;
+}
+article {
+    /*max-height: 12em;*/
+    min-height: 20em;
+    border-top: 1px dotted black;
+    border-bottom: 1px dotted black;
+}
+
+/* For styling purpose only */
+pre, code {
+    font-weight: bold;
+    font-family: monospace;
+    background: #b2b2cd;
+    color: black;
+}
+code {
+    padding: 0 .2em 0 .2em;
+    border-radius: .2em;
+}
+pre {
+    width: 21em;
+    padding: .5em 0 .5em 1em;
+    transition: width 2s;
+    -moz-transition: width 2s;
+    -webkit-transition: width 2s;
+    -o-transition: width 2s;
+    border-radius: .4em;
+}
+pre:hover {
+    width: 25em;
+}
+body {
+    background: lightgray;
+    color: black;
+}
+header h5 {
+    margin-top: -1em;
+}
+footer {
+    padding-top: .5em;
+}

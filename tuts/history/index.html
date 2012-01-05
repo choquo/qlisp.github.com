@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/style.css" rel="stylesheet"/>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <header>
+        <h3>Page Navigation for AJAX driven websites using Html5 History API</h3>
+        <h5>A tutorial by kadaj</h5>
+    </header>
+    <article>
+        <section id="one">
+            <h5>Page 1</h5>
+            <p>Html5 History API provides a way to maintain history of the current session.
+               This information can be used for page navigations. It will really come handy
+               when you are using AJAX to load pages and want to have browser navigation
+               (back/forward) active. Here we will simulate an AJAX like behavior, with
+               sections acting like pages. Consider it to be like retreiving JSON data and
+               dynamically adding them to DOM. Using Html5 History API, we will maintain the
+               history and use it for navigating back and forth using browser's navigation
+               button. We will use 'hashchange' event and hashtags for urls.
+            </p>
+            <p>
+               Before proceeding, it would be better if you have some idea on how jQuery works
+               because, we'll use jQuery for DOM manipulation. However, I'll give a brief
+               introduction to jQuery in the next page.
+            </p>
+            <p>
+               Note that this example doesn't use AJAX. It simulates that behavior. For making
+               AJAX requests you need a server to which the webpage will sent requests using
+               XMLHttpRequest (XHR) and the server will respond by sending data preferably in
+               XML or JSON format.
+            </p>
+        </section>
+        <section id="two">
+            <h5>Page 2</h5>
+            <p>This is a brief introduction to jQuery and its usage. jQuery is mainly used for
+               DOM manipulation. We will use jQuery's ready() method. You listen for the ready
+               event and once the DOM elements are ready to be manipulated, you proceed with the code.
+               The general syntax is like <code>$(document).ready(callbackFunction);</code>
+            </p>
+            <p>
+               We can use anonymous function and the code will now look more familiar        
+<pre>$(document).ready(function () {
+    //all you code will go here..
+});</pre>
+                You can select an element with an id similar to the way you use CSS selectors.
+                <code>var myElem = $('#myElemId')</code> will make the 'myElem' variable hold
+                the html element with id 'myElemId'.
+            </p>
+            <p>
+                Now jQuery is out of the way, we can focus on page navigation.
+            </p>
+        </section>
+        <section id="three">
+            <h5>Page 3</h5>
+            <p>As you can see that this tutorial itself works based on the Html5 history APIs.
+               Now let's focus on the core ideas behind page navigation and history. To navigate
+               using the browser's default navigation buttons, i.e, by using the back and forward
+               buttons, there must be a change in the URL. Only if the URL of the current window
+               change, you'll have active navigation button. When you use AJAX (JSON), the URL
+               of the current window doesn't change. So won't have any active navigation, which
+               implies, no history as well. That's where the History API comes to rescue.
+               When we make an AJAX call or when we show some page change, we'll add a new hashtag
+               to the current URL using 'pushState' function. This will append a hashtag to the
+               current URL, but won't navigate to that URL.
+            </p>
+            <p>
+               To add hash to the URL without causing the page navigation, we'll use
+               <code>window.history.pushState(null, "", "#hashtag")</code> method. We need to be
+               concerned about the third paramter only, which is the hashtag string. After that
+               we'll trigger a 'hashchange' event <code>$(this).trigger("hashchange");</code>.
+               We'll listen for that event, and when it gets captured, we can get the current hash
+               value from <code>window.location.hash</code> and do the necessary action, like
+               populating contents, hiding elements etc.
+            </p>
+            <a id="src">View Source</a>
+        </section>
+    </article>
+    <footer>
+        Page <a id="p1" class="pg" href="">1</a> | <a id="p2" class="pg" href="">2</a> | <a id="p3" class="pg" href="">3</a>
+    </footer>
+</body>
+</html>
