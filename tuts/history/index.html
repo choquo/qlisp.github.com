@@ -59,12 +59,12 @@
             <p>As you can see that this tutorial itself works based on the Html5 history APIs.
                Now let's focus on the core ideas behind page navigation and history. To navigate
                using the browser's default navigation buttons, i.e, by using the back and forward
-               buttons, there must be a change in the URL. Only if the URL of the current window
-               change, you'll have active navigation button. When you use AJAX (JSON), the URL
-               of the current window doesn't change. So won't have any active navigation, which
-               implies, no history as well. That's where the History API comes to rescue.
-               When we make an AJAX call or when we show some page change, we'll add a new hashtag
-               to the current URL using 'pushState' function. This will append a hashtag to the
+               buttons, there must be a change in the URL. The navigation buttons get active only
+               if the URL of the current window (page) changes. When we use AJAX (JSON), the URL
+               of the current window doesn't change. So we won't have any active navigation, which
+               implies, no history as well. That's where the History API comes to our rescue. When
+               we make an AJAX call or when we show some page change, we'll add a new hashtag to
+               the current URL using 'pushState' function. This will append a hashtag to the
                current URL, but won't navigate to that URL.
             </p>
             <p>
