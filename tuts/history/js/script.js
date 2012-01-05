@@ -40,6 +40,5 @@ $('document').ready(function() {
             break;
         }
    });
-   $('#src').attr('href', "view-source:" + document.URL);
    $('#p1').trigger('click');
 });
