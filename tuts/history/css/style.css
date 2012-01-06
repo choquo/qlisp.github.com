@@ -9,9 +9,9 @@
 }
 article {
     /*max-height: 12em;*/
-    min-height: 20em;
-    border-top: 1px dotted black;
-    border-bottom: 1px dotted black;
+    min-height: 21em;
+    border-top: 1px dotted lightslategrey;
+    border-bottom: 1px dotted lightslategrey;
 }
 
 /* For styling purpose only */
@@ -38,8 +38,12 @@ pre:hover {
     width: 25em;
 }
 body {
-    background: lightgray;
-    color: black;
+/*    background: lightgray;
+    color: black;*/
+    background: black;
+    color: #CCC;
+    font: x-small "Trebuchet MS", Trebuchet, Verdana, Sans-serif;
+    font-size: small;
 }
 header h5 {
     margin-top: -1em;
@@ -49,5 +53,8 @@ header h5 {
 }
 .fiframe {
     position: fixed;
-    bottom: 2em;
+    bottom: 12em;
+}
+a {
+    color: lightCyan;
 }

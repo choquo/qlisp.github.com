@@ -43,7 +43,7 @@ $('document').ready(function() {
    $('#p1').trigger('click');
    
    // for styling purpose
-   // detect iframe
+   // detect iframe for the blog post
    if (top === self) {
       //not in an iframe
       $('#kfooter').removeClass('fiframe').addClass('fnorm');
