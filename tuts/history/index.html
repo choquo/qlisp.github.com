@@ -106,21 +106,23 @@
     category: "Html5",
     desc: "intro"
 }</pre>                
-                This is specific to the first page. So when we want to navigate to another page
-                we can save that data so that the next time when we revisit popstate will fire
-                and the you can retreive the data through <code>event.originalEvent.state</code> object.<br/><br/>                
+                So when we want to navigate to another page we can save that data so that, the next time when
+                we revisit, popstate will fire and you can retreive the data through
+                <code>event.originalEvent.state</code> object.<br/><br/>                
                 
                 <code>@param title</code><br/>
                 The second parameter can be any string.<br/><br/>                
                 
                 <code>@param url</code><br/>
                 Can be hashtag or a string. Note that you can't change the baseURI,
-                or it will throw SECURITY_ERR exception. Otherwise it will be easy for URL spoofing.<br/><br/>
+                or it will throw SECURITY_ERR exception. Otherwise it will be easy for URL spoofing.
+                This value will be appended to the baseURI without loading the appended URL. This will activate
+                the browser history, so that we'll have active back and forward button.<br/><br/>
             </p>
             <p>                
                 <strong style="color: lightGreen;">The 'popstate' event</strong><br/>
-                When you navigate in history, popstate will be fired, and the data correspoding to
-                the state will be popped. Theses data objects are kept in a stack using the pushState
+                When you navigate in history, popstate will be fired, and the data corresponding to
+                the state will be popped. These data objects are kept in a stack using the pushState
                 function explained above.
             </p>
             <p>
@@ -131,13 +133,12 @@
                 <strong style="color: lightGreen;">The 'hashchange' event</strong><br/>
                 'hashchange' event is will be fired whenever there is a change in navigation, i.e
                 if you travel back and forth in history, each time the hashchange event will be fired.
-                So we can listen for the hashchange event and do the necessary action. We don't have
-                a specific way to know whether the user has clicked the back or forward button. We detect
-                it using the hashchange and infer from it. Since we already listen for the hashchange event,
-                we'll trigger the event when the user clicks the page anchor link to go to next page. Otherwise,
-                we can have a separate way to deal with clicking links as opposed to clicking back/forward buttons,
-                which isn't really necessary. So that's the reason we trigger 'hashchange' event manually.
-                
+                So we can listen for the hashchange event and depending on the hash, which we can obtain
+                from <strong><code>window.location.hash</code></strong>, we can take the necessary action.
+                Since we already listen for the hashchange event, we'll trigger the event when the user
+                clicks the page's anchor link to go to that particular page. Otherwise, we can write a
+                separate way to deal with clicking anchor links as opposed to clicking back/forward buttons,
+                which isn't really necessary. So that's the reason we trigger 'hashchange' event manually.                
             </p>
             <p>
                 <strong><code>window.history.replaceState(data, title, url)</code></strong><br/>
