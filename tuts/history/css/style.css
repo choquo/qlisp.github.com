@@ -9,7 +9,9 @@
 }
 article {
     /*max-height: 12em;*/
-    min-height: 21em;
+    position: fixed;
+    height: 550px;
+    min-height: 550px;
     border-top: 1px dotted lightslategrey;
     border-bottom: 1px dotted lightslategrey;
 }
@@ -53,12 +55,10 @@ header h5 {
     padding-top: .5em;
 }
 .fiframe {
-    position: relative;
-    padding-top: 1em;
+    position: fixed;
+    float: left;
+    bottom: 0;
 }
 a {
     color: lightCyan;
-}
-ipfixed {
-    position: fixed;
 }
