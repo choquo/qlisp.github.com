@@ -12,7 +12,7 @@
     </header>
     <article>
         <section id="one">
-            <h5>Page 1</h5>
+            <h5 class="ph">Page 1</h5>
             <p>Html5 History API provides a way to maintain history of the current session.
                This information can be used for page navigations. It will really come handy
                when you are using AJAX to load pages and want to have browser navigation
@@ -35,7 +35,7 @@
             </p>
         </section>
         <section id="two">
-            <h5>Page 2</h5>
+            <h5 class="ph">Page 2</h5>
             <p>This is a brief introduction to jQuery and its usage. jQuery is mainly used for
                DOM manipulation. We will use jQuery's ready() method. You listen for the ready
                event and once the DOM elements are ready to be manipulated, you proceed with the code.
@@ -55,7 +55,7 @@
             </p>
         </section>
         <section id="three">
-            <h5>Page 3</h5>
+            <h5 class="ph">Page 3</h5>
             <p>As you can see that this tutorial itself works based on the Html5 history APIs.
                Now let's focus on the core ideas behind page navigation and history. To navigate
                using the browser's default navigation buttons, i.e, by using the back and forward
@@ -70,17 +70,83 @@
             <p>
                To add hash to the URL without causing the page navigation, we'll use
                <code>window.history.pushState(null, "", "#hashtag")</code> method. We need to be
-               concerned about the third paramter only, which is the hashtag string. After that
+               concerned mainly about the third parameter, which is the hashtag string. After that
                we'll trigger a 'hashchange' event <code>$(this).trigger("hashchange");</code>.
                We'll listen for that event, and when it gets captured, we can get the current hash
                value from <code>window.location.hash</code> and do the necessary action, like
                populating contents, hiding elements etc.
             </p>
+            <p>
+                Next we'll discuss history API methods in more detail.
+            </p>
+        </section>
+        <section id="four">
+            <h5 class="ph">Page 4</h5>
+            <p>
+                These are some of the notable functions in the history API.
+            </p>
+            <p>
+                <strong><code>window.history.pushState(data, title, url)</code></strong><br/><br/>
+                
+                <code>@param data</code><br/>
+                data is generally something that is specific to the context of the particular page.
+                Say in the first page you retreive data in JSON format. Say our data is:
+<pre>{
+    page: '1',
+    title: "Tutorial",
+    category: "Html5",
+    desc: "intro"
+}</pre>                
+                This is specific to the first page. So when we want to navigate to another page
+                we can save that data so that the next time when we revisit popstate will fire
+                and the you can retreive the data through event.originalEvent.state object.<br/><br/>                
+                
+                <code>@param title</code><br/>
+                The second parameter can be any string.<br/><br/>                
+                
+                <code>@param url</code><br/>
+                Can be hashtag or a string. Note that you can't change the baseURI,
+                or it will throw SECURITY_ERR exception. Otherwise it will be easy for URL spoofing.<br/><br/>
+            </p>
+            <p>                
+                <strong style="color: lightGreen;">The 'popstate' event</strong><br/>
+                When you navigate in history, popstate will be fired, and the data correspoding to
+                the state will be popped. Theses data objects are kept in a stack using the pushState
+                function explained above.
+            </p>
+            <p>
+                <strong><code>window.location.hash</code></strong><br/>
+                This variable will contain the current hashtag of the window
+            </p>
+            <p>
+                <strong style="color: lightGreen;">The 'hashchange' event</strong><br/>
+                'hashchange' event is will be fired whenever there is a change in navigation, i.e
+                if you travel back and forth in history, each time the hashchange event will be fired.
+                So we can listen for the hashchange event and do the necessary action. We don't have
+                a specific way to know whether the user has clicked the back or forward button. We detect
+                it using the hashchange and infer from it. Since we already listen for the hashchange event,
+                we'll trigger the event when the user clicks the page anchor link to go to next page. Otherwise,
+                we can have a separate way to deal with clicking links as opposed to clicking back/forward buttons,
+                which isn't really necessary. So that's the reason we trigger 'hashchange' event manually.
+                
+            </p>
+            <p>
+                <strong><code>window.history.replaceState(data, title, url)</code></strong><br/>
+                This function is same as that of push state. But instead of pushing a new state
+                to the stack, it will replace the top state (from the stack) with the one specified
+                in this function.
+            </p>
+            <p>
+                <strong><code>window.history.forward()</code></strong> will go one step forward in history and
+                <stong><code>window.history.backward()</code></strong> will go one step backward in history. We
+                are not using these methods in this tutorial.
+            </p>
             <p><a href="https://github.com/kadaj/kadaj.github.com/tree/master/tuts/history" target="_blank">View Source</a></p>
         </section>
     </article>
     <footer id="kfooter">
-        Page <a id="p1" class="pg" href="">1</a> | <a id="p2" class="pg" href="">2</a> | <a id="p3" class="pg" href="">3</a>
+        Page <a id="p1" class="pg" href="">1</a> | <a id="p2" class="pg" href="">2</a>
+        | <a id="p3" class="pg" href="">3</a> | <a id="p4" class="pg" href="">4</a>
     </footer>
 </body>
 </html>

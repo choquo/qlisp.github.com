@@ -7,46 +7,18 @@
 #three {
     display: none;
 }
-.i-article {
-    /*max-height: 12em;*/
-    position: fixed;
-    height: 550px;
-    min-height: 550px;
+/* For styling */
+article {
     border-top: 1px dotted lightslategrey;
     border-bottom: 1px dotted lightslategrey;
 }
-.ni-article {
-    /*max-height: 12em;*/
-    border-top: 1px dotted lightslategrey;
-    border-bottom: 1px dotted lightslategrey;
-}
-
-/* For styling purpose only */
 pre, code {
     font-weight: bold;
     font-family: monospace;
-    background: #b2b2cd;
-    color: black;
-}
-code {
-    padding: 0 .2em 0 .2em;
-    border-radius: .2em;
-}
-pre {
-    width: 21em;
-    padding: .5em 0 .5em 1em;
-    transition: width 2s;
-    -moz-transition: width 2s;
-    -webkit-transition: width 2s;
-    -o-transition: width 2s;
-    border-radius: .4em;
-}
-pre:hover {
-    width: 25em;
+    background: black;
+    color: lightGreen;
 }
 body {
-/*    background: lightgray;
-    color: black;*/
     min-height: 25em;
     background: black;
     color: #CCC;
@@ -56,14 +28,9 @@ body {
 header h5 {
     margin-top: -1em;
 }
-.fnorm {
-    padding-top: .5em;
-}
-.fiframe {
-    position: fixed;
-    float: left;
-    bottom: 0;
+#kfooter {
+    padding-top: 1em;
 }
 a {
-    color: lightCyan;
+    color: lightSalmon;
 }
