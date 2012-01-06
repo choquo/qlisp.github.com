@@ -40,6 +40,7 @@ pre:hover {
 body {
 /*    background: lightgray;
     color: black;*/
+    min-height: 25em;
     background: black;
     color: #CCC;
     font: x-small "Trebuchet MS", Trebuchet, Verdana, Sans-serif;
