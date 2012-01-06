@@ -53,9 +53,12 @@ header h5 {
     padding-top: .5em;
 }
 .fiframe {
-    position: fixed;
-    bottom: 0;
+    position: relative;
+    padding-top: 33em;
 }
 a {
     color: lightCyan;
+}
+ipfixed {
+    position: fixed;
 }
