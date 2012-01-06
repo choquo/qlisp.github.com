@@ -41,4 +41,14 @@ $('document').ready(function() {
         }
    });
    $('#p1').trigger('click');
+   
+   // for styling purpose
+   // detect iframe
+   if (top === self) {
+      //not in an iframe
+      $('#kfooter').removeClass('fiframe').addClass('fnorm');
+   } else {
+      //in an iframe
+      $('#kfooter').removeClass('fnorm').addClass('fiframe');
+   }
 });

@@ -44,6 +44,10 @@ body {
 header h5 {
     margin-top: -1em;
 }
-footer {
+.fnorm {
     padding-top: .5em;
+}
+.fiframe {
+    position: fixed;
+    bottom: 2em;
 }
