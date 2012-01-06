@@ -7,11 +7,16 @@
 #three {
     display: none;
 }
-article {
+.i-article {
     /*max-height: 12em;*/
     position: fixed;
     height: 550px;
     min-height: 550px;
+    border-top: 1px dotted lightslategrey;
+    border-bottom: 1px dotted lightslategrey;
+}
+.ni-article {
+    /*max-height: 12em;*/
     border-top: 1px dotted lightslategrey;
     border-bottom: 1px dotted lightslategrey;
 }

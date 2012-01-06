@@ -47,8 +47,10 @@ $('document').ready(function() {
    if (top === self) {
       //not in an iframe
       $('#kfooter').removeClass('fiframe').addClass('fnorm');
+      $('article').removeClass('i-article').addClass('ni-article');
    } else {
       //in an iframe
       $('#kfooter').removeClass('fnorm').addClass('fiframe');
+      $('article').removeClass('ni-article').addClass('i-article');
    }
 });
