@@ -16,15 +16,57 @@
         <section>
             <h3>Tooltip on Hovering Links</h3>
             <p>
-                We can use CSS alone to show tooltips when we hover on an anchor link.
+                We can use CSS to show tooltips when we hover on an anchor link.
                 Hover on the link below to see the tooltip. Tooltip can contain images
                 as well.
             </p>
-            <a href="" style="padding-left: 2em;">kadaj<span>..lost in silence <img src="img/emoticons/think10.gif"/></span></a>
+            <a id="t1" href="" style="padding-left: 2em;">Hover here<span>..lost in silence <img src="img/emoticons/think10.gif"/></span></a>
+            <p>
+                To show tooltip, first we create an anchor link, with the tooltip inside a span tag.
+                <pre>&lt;a id="t1" href=""&gt;hover here&lt;span&gt;..lost in silence&lt;/span&gt;&lt;/a&gt;</pre>
+                We can add images to the tooltip as well using the image tag within the span tag.
+                <pre>&lt;a id="t2" href=""&gt;hover here&lt;span&gt;..lost in silence&lt;img src="pic.gif"/&gt;&lt;/span&gt;&lt;/a&gt;</pre>
+                Initially we'll set the display of span tag withing the anchor tag to none. Only on hover we'll change the display to
+                block so that the text in the span tag is visible. The span tag must be styled to give it a tooltip
+                appearance. We use absolute positioning on the tool tip element.
+<pre>
+/* hide span tag in the anchor tag (which is our tooltip) */
+a span {
+    display: none;
+}
+
+/* on hover show the span tag (tooltip) */
+#t1:hover span {
+    display: block;
+    position: absolute;
+    top: 11em;  /* depends on the position of the link */
+    left: 6em;  /* depends on the position of the link */
+    border-radius: 3px;
+    text-align: center;
+    font: 10px Verdana, sans-serif;
+    padding: 0 .5em 1.5em .5em;
+    margin: .5em;
+    width: 13em;
+    z-index: 100;  /* to show on top of other elements */
+    border:1px solid darkcyan;
+    background-color: lightcyan;
+    opacity: .9;
+    color: black;
+}
+
+/* styling tooltip image */
+#t1:hover span img {
+    position: relative;
+    top: .7em;
+    left: .2em;
+    z-index: 100;
+}
+</pre>
+            </p>
             <p>
                 The only drawback using this method is that your page layout must remain fixed.
                 That's because we use absolute positioning and the tooltip position is calulated
-                from 'top' and 'left'. So if the layout changes, or the link position changes, then
+                from 'top' and 'left'. So if the layout changes, or the anchor link's position changes, then
                 you'll have to change the tooltip position as well.
             </p>
         </section>

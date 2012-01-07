@@ -1,11 +1,7 @@
-a {
-    text-decoration: none;
-    color: #4eabff;
-}
-a span {
+#t1 span {
     display: none;
 }
-a:hover span {
+#t1:hover span {
     display: block;
     position: absolute;
     top: 11em;
@@ -22,11 +18,18 @@ a:hover span {
     opacity: .9;
     color: black;
 }
-a:hover span img {
+#t1:hover span img {
     position: relative;
     top: .7em;
     left: .2em;
     z-index: 100;
+}
+/* page style */
+#t1 {
+    text-decoration: none;
+}
+a {
+    color: #4eabff;
 }
 body {
     min-height: 25em;
@@ -34,4 +37,8 @@ body {
     color: #CCC;
     font: x-small "Trebuchet MS", Trebuchet, Verdana, Sans-serif;
     font-size: small;
+}
+pre, code {
+    color: lightSeaGreen;
+    font-weight: bold;
 }
