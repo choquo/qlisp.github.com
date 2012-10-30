@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+        
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link href='http://dl.dropbox.com/u/11692173/static/favicon.ico' rel='shortcut icon'/>
+    <link href='http://dl.dropbox.com/u/11692173/static/favicon.ico' rel='shortcut icon' type='image/vnd.microsoft.icon'/>
+    <link href='http://dl.dropbox.com/u/11692173/static/favicon.ico' rel='icon'/>
+    <link href='http://dl.dropbox.com/u/11692173/static/favicon.ico' rel='icon' type='image/vnd.microsoft.icon'/>
+    <meta content='index, follow, noarchieve' name='robots'/>
+    <meta content='kadaj' name='author'/>
+    
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <header>
+        <h3>Scroll Element (with overflow-y: scroll property) Into View Smoothly</h3>
+        <h5>A tutorial by kadaj</h5>
+    </header>
+    <nav class="nav">
+        <div class="navSection nav-section"><a id="nav1" href="">Introduction</a> |</div>
+        <div class="navSection nav-section"><a id="nav2" href="">Code Examples</a> |</div>
+        <div class="navSection nav-section"><a id="nav3" href="">Explanation</a> |</div>
+        <div class="navSection nav-section"><a id="nav4" href="">More Explanation</a></div>
+    </nav>
+    <div class="clear"></div>
+    <article class="content">
+        <section id="s1" class="section1">
+            <div class="section-heading">Introduction</div>
+            <p>This is a demo on displaying an element by scrolling to the<br />
+               elements position. To demonstrate this, the sections will be filled<br />
+               with dummy text to have it enough height so that scroll can be done.<br />
+               I will simply add more text in the form of explanation just to increase<br />
+               the content, along with helping to understand it in a better.
+            </p>
+            <p>
+                Here we use jQuery to help us in DOM manipulation. The contents<br />
+                are placed inside article tag which has it's height set to 300px<br />
+                with overflow-y set to scroll. So if the content height is greater<br />
+                than 300px scrollbar appears. You can reduce the browser width so<br />
+                that contents wraps and we have a better scroll area.
+            </p>
+            <p>                
+                To view the demo, click the on the top navigation links. On<br />
+                clicking the navigation link, the page will be scrolled down to<br />
+                the corresponding section. The scrolling will be smooth and the<br />
+                duration, scroll effect like easing can be specified.
+            </p>
+            <p>
+                In order to scroll smoothly we make use of jQuery.animate() API<br />
+                which is explained at http://api.jquery.com/animate/ website.<br />
+            </p>
+        </section>
+        <section id="s2" class="section2">
+            <div class="section-heading">Code Examples</div>
+<pre>&lt;!-- html --&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;style&gt;
+    .content {
+        height: 300px;
+        overflow-y: scroll;
+    }
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;header&gt;&lt;/header&gt;
+    &lt;nav&gt;
+        &lt;!-- link to navigation to sections --&gt;
+    &lt;/nav&gt;
+    &lt;article class="content"&gt;
+        &lt;section&gt;
+            &lt;div&gt;&lt;/div&gt;
+            &lt;p&gt;&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- more sections here --&gt;
+    &lt;/article&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<pre>// js
+$('.content').animate({
+    scrollTop: $(elemId).parent().scrollTop() + $(elemId).offset().top - $(elemId).parent().offset().top
+}, {
+    duration: 1000,
+    specialEasing: {
+        width: 'linear',
+        height: 'easeOutBounce'
+    },
+    complete: function (e) {
+        console.log("animation completed");
+    }
+});</pre>
+        </section>
+        <section id="s3" class="section3">
+            <div class="section-heading">Explanation</div>
+            <p>
+                The <code>scrollTop()</code> method sets or returns the vertical position of<br />
+                the scrollbar for the selected elements.<br />
+                The <code>offset()</code> method allows us to retrieve the current position<br />
+                of an element relative to the document.<br />
+                The idea is add the current offset of the scrollbar with the <br />
+                current offset of the element, and subtract the top offset of the<br />
+                parent element, i.e., the area which is fixed below which the scroll<br />
+                area beings.<br />
+                Offset on an element relative to the document can be positive or<br />
+                negative, depending on whether the element is yet to be scrolled<br />
+                or the element has passed the scrolling.<br />
+            </p>
+            <p>
+                As mentioned in the introduction section, in order to add a <br />
+                smooth effect to scrolling, we make use of jQuery's animate <br />
+                function. We could just use <code>$('#elemId')[0].scrollIntoView()</code><br />
+                but in that case, the scrolling is not smooth.
+            </p>
+            <p>
+                Just to add more content for scroll demonstation, the explanation<br />
+                for <code>$.animate()</code> function is added from the jQuery website.<br />
+                The <code>.animate()</code> method allows us to create animation effects on <br />
+                any numeric CSS property. The only required parameter is a map <br />
+                of CSS properties. This map is similar to the one that can be <br />
+                sent to the <code>.css()</code> method, except that the range of properties <br />
+                is more restrictive.
+                
+                <h4>Animation Properties and Values</h4>
+                All animated properties should be animated to a single numeric <br />
+                value, except as noted below; most properties that are non-numeric<br />
+                cannot be animated using basic jQuery functionality (For example, <br />
+                width, height, or left can be animated but background-color cannot be,<br />
+                unless the <code>jQuery.Color()</code> plugin is used). Property values are treated<br />
+                as a number of pixels unless otherwise specified. The units em <br />
+                and % can be specified where applicable.<br />
+                In addition to style properties, some non-style properties such <br />
+                as scrollTop and scrollLeft, as well as custom properties, can <br />
+                be animated.<br />
+                Shorthand CSS properties (e.g. font, background, border) are not<br />
+                fully supported. For example, if you want to animate the rendered<br />
+                border width, at least a border style and border width other than<br />
+                "auto" must be set in advance. Or, if you want to animate font size,<br />
+                you would use fontSize or the CSS equivalent 'font-size' rather<br />
+                than simply 'font'.<br />
+                In addition to numeric values, each property can take the strings<br />
+                'show', 'hide', and 'toggle'. These shortcuts allow for custom<br />
+                hiding and showing animations that take into account the display<br />
+                type of the element.<br />
+                Animated properties can also be relative. If a value is supplied<br />
+                with a leading += or -= sequence of characters, then the target<br />
+                value is computed by adding or subtracting the given number from<br />
+                the current value of the property.
+            </p>
+        </section>
+        <section id="s4" class="section4">
+            <div class="section-heading">More Explanation</div>
+            <p>
+                <h4>Duration</h4>
+                Durations are given in milliseconds; higher values indicate slower<br />
+                animations, not faster ones. The default duration is 400 milliseconds.<br />
+                The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations<br />
+                of 200 and 600 milliseconds, respectively.<br />
+                <h4>Complete Function</h4>
+                If supplied, the complete callback function is fired once the <br />
+                animation is complete. This can be useful for stringing different<br />
+                animations together in sequence. The callback is not sent any <br />
+                arguments, but this is set to the DOM element being animated. If<br />
+                multiple elements are animated, the callback is executed once per<br />
+                matched element, not once for the animation as a whole.
+                <h4>Step Function</h4>
+                The second version of <code>.animate()</code> provides a step option — a callback<br />
+                function that is fired at each step of the animation. This function<br />
+                is useful for enabling custom animation types or altering the animation<br />
+                as it is occurring. It accepts two arguments (now and fx), and this<br />
+                is set to the DOM element being animated.<br />
+                <ul>
+                    <li><code>now</code>: the numeric value of the property being animated at each step</li>
+                    <li><code>fx</code>: a reference to the jQuery.fx prototype object, which<br />
+                        contains a number of properties such as elem for the animated<br />
+                        element, start and end for the first and last value of the<br />
+                        animated property, respectively, and prop for the property<br />
+                        being animated.
+                </ul>
+                Note that the step function is called for each animated property<br />
+                on each animated element. 
+            </p>
+        </section>
+    </article>
+</body>
+</html>

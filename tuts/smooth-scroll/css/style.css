@@ -1,0 +1,34 @@
+.nav {
+    padding-bottom: 2.5em;
+}
+.nav-section {
+    float: left;
+    padding: 0 .5em 0 0;
+}
+.clear {
+    clear: both;
+}
+.section-heading {
+    margin: .5em 0 -.5em 0;
+    font-weight: bold;
+}
+.content {
+    height: 300px;
+    overflow-y: scroll;
+}
+/* page styles */
+body {
+    background: #101A16;
+    color: #CCC;
+    font: x-small "Trebuchet MS", Trebuchet, Verdana, Ubuntu, Sans-serif;
+    font-size: small;
+    margin-left: 17px;
+}
+a {
+    color: lightSalmon;
+}
+pre, code {
+    font-weight: bold;
+    font-family: monospace;
+    color: lightSeaGreen;
+}
