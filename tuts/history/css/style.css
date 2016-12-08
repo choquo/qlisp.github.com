@@ -20,7 +20,7 @@ pre, code {
 }
 body {
     min-height: 25em;
-    background: black;
+    background: #0F0F0F;
     color: #CCC;
     font: x-small "Trebuchet MS", Trebuchet, Verdana, Sans-serif;
     font-size: small;
