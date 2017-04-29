@@ -36,3 +36,7 @@ Thumbs.db
 # Editor/IDE specific files #
 #############################
 *~
+
+# Excludes
+##########
+!bin
